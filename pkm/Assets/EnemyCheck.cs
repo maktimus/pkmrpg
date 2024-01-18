@@ -9,11 +9,14 @@ public class EnemyCheck : MonoBehaviour
     private GameObject targetMon;
     public GameObject pet;
     Follow followScript;
+    PetControls petControl;
    
     // Start is called before the first frame update
     void Start()
     {
+        //will need to change how we call these when pet can be changed
         followScript = pet.GetComponent<Follow>();
+        petControl = pet.GetComponent<PetControls>();
     }
 
     private void Update()
@@ -34,6 +37,7 @@ public class EnemyCheck : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && wildMon.Count >= 1)
         {
             followScript.DoBattle(targetMon);
+            petControl.GetTarget(targetMon.transform);
             Debug.Log("Do Battle");
         }
     }

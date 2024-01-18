@@ -19,22 +19,22 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if(followScript.battle == true && this.tag == "Player")
+        if(followScript.battle == true && this.tag == "Player")
         {
             runSpeed = 0;
         }
         else
         {
-            runSpeed = 0.5f;
+            runSpeed = 0.05f;
         }
-
+        /*
         if (followScript.battle == true && this.tag == "Pet")
         {
             runSpeed = 0;
         }
         else
         {
-            runSpeed = 0.5f;
+            runSpeed = 0.05f;
         }*/
 
         Vector3 horizontal = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);

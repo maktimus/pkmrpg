@@ -11,11 +11,14 @@ public class Follow : MonoBehaviour
 
     //speed should be set by stats
     public float speed;
+    Stats stats;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        stats = GetComponent<Stats>();
+        speed = (stats.spd / 10) * 0.5f ;
         wayPoint = GameObject.Find("Player");
         Debug.Log(follow);
     }
@@ -37,6 +40,8 @@ public class Follow : MonoBehaviour
             //moves towards enemy
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
         }
+        speed = (stats.spd / 10);
+        speed = Mathf.Clamp(speed, 2, 35);
     }
 
     //starts battle
@@ -63,6 +68,8 @@ public class Follow : MonoBehaviour
         {
             initiate = false;
             battle = true;
+            PetControls controller = GetComponent<PetControls>();
+            controller.canControl = true;
         }
     }
 
