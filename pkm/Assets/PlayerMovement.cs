@@ -3,73 +3,71 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-[RequireComponent(typeof(PlayerInput))]
 public class PlayerMovement : MonoBehaviour
 {
+    Stats stats;
     public float runSpeed;
-    Follow followScript;
-    //will need to be an array or list when implementing a party of pets. Same for other revelant scripts
-    public GameObject pet;
 
-    private PlayerInput input;
-    private InputAction m_Move;
     private Rigidbody rb;
+    Vector2 moveInput;
+    public GameObject Char;
+    public Animator animator;
   
     // Start is called before the first frame update
     void Start()
     {
-     
-        followScript = pet.GetComponent<Follow>();
         rb = GetComponent<Rigidbody>();
-      
+        if(this.CompareTag("Pet"))
+        {
+            animator = GetComponent<Animator>();
+            stats = GetComponent<Stats>();
+            runSpeed = stats.moveSpd;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(followScript.battle == true)
+        if(this.CompareTag("Pet"))
         {
-            //PlayerInput input = new PlayerInput();
-            //input.DeactivateInput();
-            Debug.Log("deactivated");
+            runSpeed = stats.moveSpd;
         }
-        else
-        {
-            //runSpeed = 0.05f;
-        }
-        /*
-        if (followScript.battle == true && this.tag == "Pet")
-        {
-            runSpeed = 0;
-        }
-        else
-        {
-            runSpeed = 0.05f;
-        }*/
-
-        /*Vector3 horizontal = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-        transform.position = transform.position + horizontal * runSpeed;
-
-        Vector3 vertical = new Vector3( 0.0f, 0.0f, Input.GetAxis("Vertical"));
-        transform.position = transform.position + vertical * runSpeed;*/
-
-        if(input == null)
-        {
-            input = GetComponent<PlayerInput>();
-            m_Move = input.actions["move"];
-        }
-
-        var move = m_Move.ReadValue<Vector3>();
-
-
+        Run();
     }
 
-
-    public void OnMove(InputValue value)
+    private void LateUpdate()
     {
-        rb.velocity = value.Get<Vector3>() * runSpeed;
+        
     }
 
+    void Run()
+    {
+        Vector3 playerVelocity = new Vector3(moveInput.x * runSpeed, rb.velocity.y, moveInput.y * runSpeed);
+        rb.velocity = transform.TransformDirection(playerVelocity);
+    }
+
+    private void OnMove(InputValue value)
+    {
+        moveInput = value.Get<Vector2>();
+        animator.SetFloat("X", moveInput.x);
+        animator.SetFloat("Y", moveInput.y);
+        animator.SetFloat("Speed", moveInput.sqrMagnitude);
+
+        if(moveInput.x == 1 || moveInput.x == -1)
+        {
+            animator.SetFloat("lastX", moveInput.x);
+            
+        }
+        if(moveInput.y == 1 || moveInput.y == -1)
+        {
+            animator.SetFloat("lastY", moveInput.y);
+        }
+        else if (moveInput.x == 1 && moveInput.y == 0 || moveInput.x == -1 && moveInput.y == 0 || moveInput.y == 1 && moveInput.x == 0 || moveInput.y == -1 && moveInput.x == 0 || moveInput.x == 1 && moveInput.y == 1 || moveInput.x == 1 && moveInput.y == -1 || moveInput.x == -1 && moveInput.y == 1 || moveInput.x == -1 && moveInput.y == -1)
+        {
+            animator.SetFloat("lastY", moveInput.y);
+            animator.SetFloat("lastX", moveInput.x);
+        }
+    }
 
 
 }

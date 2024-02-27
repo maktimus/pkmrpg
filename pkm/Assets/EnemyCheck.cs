@@ -37,7 +37,7 @@ public class EnemyCheck : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Space) && wildMon.Count >= 1)
         {
             followScript.DoBattle(targetMon);
-            petControl.GetTarget(targetMon.transform);
+            //petControl.GetTarget(targetMon.transform);
             Debug.Log("Do Battle");
         }
     }

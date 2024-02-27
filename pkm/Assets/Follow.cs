@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Follow : MonoBehaviour
 {
-    public GameObject wayPoint;
+    public GameObject wayPoint, controller;
 
     private Vector3 wayPointPos, targetPos;
     public bool follow = true, battle = false, initiate = false;
@@ -13,14 +13,16 @@ public class Follow : MonoBehaviour
     public float speed;
     Stats stats;
 
+    ControllerChecker control;
+
 
     // Start is called before the first frame update
     void Start()
     {
         stats = GetComponent<Stats>();
-        speed = (stats.spd / 10) * 0.5f ;
+        speed = stats.moveSpd;//(stats.spd / 10) * 0.5f ;
         wayPoint = GameObject.Find("Player");
-        Debug.Log(follow);
+        control = controller.GetComponent<ControllerChecker>();
     }
 
     // Update is called once per frame
@@ -40,8 +42,8 @@ public class Follow : MonoBehaviour
             //moves towards enemy
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
         }
-        speed = (stats.spd / 10);
-        speed = Mathf.Clamp(speed, 2, 35);
+        speed = stats.moveSpd;
+        //speed = Mathf.Clamp(speed, 2, 35);
     }
 
     //starts battle
@@ -68,8 +70,8 @@ public class Follow : MonoBehaviour
         {
             initiate = false;
             battle = true;
-            PetControls controller = GetComponent<PetControls>();
-            controller.canControl = true;
+            control.SwitchControls();
+            Debug.Log("Switched");
         }
     }
 

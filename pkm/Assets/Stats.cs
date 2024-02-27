@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Stats : MonoBehaviour
 {
     public int baseAtk, baseSpa, baseDef, baseSpdef, baseSpd, baseHp;
-    public int atk, spa, spdef, def, spd, hp, maxHP;
+    public int atk, spa, spdef, def, spd, hp, maxHP, moveSpd;
     public  int level, exp, enemyLvl;
         
     public bool isFast = false, isMFast = false, isMSlow = false, isSlow = false;
@@ -64,6 +64,7 @@ public class Stats : MonoBehaviour
         spdef = Mathf.RoundToInt(Mathf.Floor(0.01f * (2 * baseSpdef + 31 + Mathf.Floor(0.25f * 256f)) * level) + 5);
         def = Mathf.RoundToInt(Mathf.Floor(0.01f * (2 * baseDef + 31 + Mathf.Floor(0.25f * 256f)) * level) + 5);
         spd = Mathf.RoundToInt(Mathf.Floor(0.01f * (2 * baseSpd + 31 + Mathf.Floor(0.25f * 256f)) * level) + 5);
+        moveSpd = spd / 3;
 
         hpBar.maxValue = maxHP;
         
