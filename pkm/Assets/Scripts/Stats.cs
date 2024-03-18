@@ -98,6 +98,8 @@ public class Stats : MonoBehaviour
             if (hp <= 0)
             {
                 Debug.Log("should be destroyed");
+                CheckSpawn spawn = gameObject.GetComponent<CheckSpawn>();
+                spawn.ReduceSpawn();
                 Destroy(gameObject);
             }
         }
