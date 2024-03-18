@@ -9,6 +9,7 @@ TagManager:
   - SearchRad
   - BattleRad
   - Pet
+  - Enemy
   layers:
   - Default
   - TransparentFX

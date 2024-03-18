@@ -78,7 +78,7 @@ public class Follow : MonoBehaviour
     //resumes following player when no longer within radius
     private void OnTriggerExit(Collider other)
     {
-        if(battle == true)
+        if(battle == true || initiate == true)
         {
             return;
         }

@@ -6,6 +6,8 @@ using TMPro;
 public class MonHeader : MonoBehaviour
 {
     public TextMeshPro petLabel;
+    [SerializeField]
+    string _name;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,6 +16,7 @@ public class MonHeader : MonoBehaviour
 
     public void UpdateLabel(int level)
     {
-        petLabel.text = "level: " +  level.ToString() + " Moanne";
+        petLabel.text = "level: " +  level.ToString() + "  " + _name;
+        Debug.Log("Updated Label");
     }
 }

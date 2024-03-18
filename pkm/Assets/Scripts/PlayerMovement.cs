@@ -53,7 +53,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void PlayFootStep()
     {
-        Debug.Log("Passed 0");
         swapper.CheckLayers();
 
         int n = Random.Range(1, footstepSounds.Count);
@@ -78,7 +77,6 @@ public class PlayerMovement : MonoBehaviour
 
         footstepSounds[n] = footstepSounds[0];
         footstepSounds[0] = audioSource.clip;
-        Debug.Log("Source Got");
 
     }
 
