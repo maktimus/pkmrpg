@@ -1083,6 +1083,7 @@ GameObject:
   - component: {fileID: 6338443259287840501}
   - component: {fileID: 2178428839790764552}
   - component: {fileID: -7847525517539752609}
+  - component: {fileID: 597002579767111849}
   m_Layer: 0
   m_Name: WildMon
   m_TagString: Enemy
@@ -1251,6 +1252,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b785286974ee2e4fbbc4db635bb5aaf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &597002579767111849
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6338443259287840502}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9675b8bec0406f49b518e7cb33796bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &8713625288471438689

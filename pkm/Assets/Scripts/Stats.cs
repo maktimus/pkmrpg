@@ -93,16 +93,18 @@ public class Stats : MonoBehaviour
         hpBar.value = hp;
         hpBar.maxValue = maxHP;
 
-        if(gameObject.tag == "Enemy")
+        /*if(gameObject.tag == "Enemy")
         {
             if (hp <= 0)
             {
                 Debug.Log("should be destroyed");
                 CheckSpawn spawn = gameObject.GetComponent<CheckSpawn>();
                 spawn.ReduceSpawn();
+                Stats enemyStats = gameObject.GetComponent<Stats>();
+                GainExp(enemyStats.level, 0);       
                 Destroy(gameObject);
             }
-        }
+        }*/
 
     }
 
@@ -187,6 +189,7 @@ public class Stats : MonoBehaviour
             int def = stats.def;
 
             Damage(30, def, hp, stats);
+
         }
     }
 
@@ -200,7 +203,23 @@ public class Stats : MonoBehaviour
         stats.hp -= damage;
 
         Debug.Log(damage);
-
         //in collision script on attack hit box, grab opposing stat script and - the hp stat with the calculated damage : The how to compute these values
     }
+
+    /*public void Kill(GameObject enemy, Stats stats)
+    {
+        if (stats.hp == 0)
+        {
+            Debug.Log("should be destroyed");
+            CheckSpawn spawn = enemy.GetComponent<CheckSpawn>();
+            spawn.ReduceSpawn();
+            GainExp(stats.level, 0);
+            Destroy(enemy);
+            Debug.Log("AHHHH");
+        }
+        else
+        {
+            return;
+        }
+    }*/
 }

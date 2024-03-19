@@ -34,11 +34,11 @@ public class EnemySpawner : MonoBehaviour
         if(render.isVisible)
         {
             InvokeRepeating(nameof(Spawn), 2f, 10);
-            Debug.Log("Is Visible");
+            //Debug.Log("Is Visible");
         }
         else if(!render.isVisible || spawned >= maxSpawn)
         {
-            Debug.Log("Not Visible");
+            //Debug.Log("Not Visible");
             //CancelInvoke();
         }
     }
@@ -46,7 +46,7 @@ public class EnemySpawner : MonoBehaviour
 
     private void Spawn()
     {
-        Debug.Log("Spawn");
+        //Debug.Log("Spawn");
         if (spawned < maxSpawn)
         {
             HasSpawned();
