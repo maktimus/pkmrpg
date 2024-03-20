@@ -17,8 +17,33 @@ public class Attack : MonoBehaviour
     {
     }
 
-    private void OnFire()
+    private void OnFire(InputValue inputValue)
     {
+        anim.ResetTrigger("StopAttack");
 
+        anim.SetTrigger("Attack");
+
+        //stop movement when attacking
+        Debug.Log("Attacking");
+    }
+
+    public void NotAttacking()
+    {
+        anim.ResetTrigger("Attack");
+        anim.SetTrigger("StopAttack");
+
+        
+        if(anim.GetInteger("AttackNumber") == 1)
+        {
+            int test = anim.GetInteger("AttackNumber");
+            anim.SetInteger("AttackNumber", 2);
+            Debug.Log(test);
+        }
+        else if(anim.GetInteger("AttackNumber") == 2)
+        {
+            int test = anim.GetInteger("AttackNumber");
+            anim.SetInteger("AttackNumber", 1);
+            Debug.Log(test);
+        }
     }
 }
