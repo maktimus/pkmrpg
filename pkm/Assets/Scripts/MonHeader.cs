@@ -17,6 +17,5 @@ public class MonHeader : MonoBehaviour
     public void UpdateLabel(int level)
     {
         petLabel.text = "level: " +  level.ToString() + "  " + _name;
-        Debug.Log("Updated Label");
     }
 }

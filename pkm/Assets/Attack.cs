@@ -6,6 +6,13 @@ using UnityEngine.InputSystem;
 public class Attack : MonoBehaviour
 {
     Animator anim;
+    bool attackAgain = true;
+    public Transform[] atkPoint;
+    public LayerMask enemyLayer;
+    public float atkRange = 0.5f;
+
+    int direction;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,14 +24,35 @@ public class Attack : MonoBehaviour
     {
     }
 
+    private void AttackDir(int dir)
+    {
+        //working but need to fix diagonals, stays on diagonal values on occasions
+        direction = dir;
+        Debug.Log(dir);
+    }
+
     private void OnFire(InputValue inputValue)
     {
-        anim.ResetTrigger("StopAttack");
+        if(attackAgain == true)
+        {
 
-        anim.SetTrigger("Attack");
+            anim.ResetTrigger("StopAttack");
 
+            anim.SetTrigger("Attack");
+            attackAgain = false;
+
+            Collider[] hitEnemies = Physics.OverlapSphere(atkPoint[direction].position, atkRange, enemyLayer);
+
+            foreach(Collider enemy in hitEnemies)
+            {
+                Debug.Log("We hit " + enemy.name);
+            }
+
+            Debug.Log("Attacking Direction = " + atkPoint[direction]);
+
+            //damage
+        }
         //stop movement when attacking
-        Debug.Log("Attacking");
     }
 
     public void NotAttacking()
@@ -37,13 +65,22 @@ public class Attack : MonoBehaviour
         {
             int test = anim.GetInteger("AttackNumber");
             anim.SetInteger("AttackNumber", 2);
-            Debug.Log(test);
         }
         else if(anim.GetInteger("AttackNumber") == 2)
         {
             int test = anim.GetInteger("AttackNumber");
             anim.SetInteger("AttackNumber", 1);
-            Debug.Log(test);
         }
+
+        attackAgain = true;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        for (int i = 0; i < atkPoint.Length; i++)
+        {
+            Gizmos.DrawWireSphere(atkPoint[i].position, atkRange);
+        }
+
     }
 }

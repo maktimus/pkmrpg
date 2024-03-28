@@ -168,7 +168,6 @@ public class Stats : MonoBehaviour
 
     public void UpdateInfo()
     {
-        Debug.Log("Info Updated");
         monInfo.UpdateLabel(level);
     }
 

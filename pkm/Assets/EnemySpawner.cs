@@ -52,15 +52,14 @@ public class EnemySpawner : MonoBehaviour
             HasSpawned();
             Bounds bounds = GetComponent<Collider>().bounds;
             float offsetX = Random.Range(-bounds.extents.x, bounds.extents.x);
-            float offsetY = Random.Range(-bounds.extents.y, bounds.extents.y);
             float offsetZ = Random.Range(-bounds.extents.z, bounds.extents.z);
 
             GameObject newEnemy = GameObject.Instantiate(enemyList[GetRanndom()]);
             newEnemy.transform.position = bounds.center + new Vector3(offsetX, 0, offsetZ);
-            Stats stats = newEnemy.GetComponent<Stats>();
-            stats.level = Random.Range(minLevel, maxLevel);
-            stats.SetHponSpwan();
-            stats.UpdateInfo();
+            Enemy enemy = newEnemy.GetComponent<Enemy>();
+            enemy.level = Random.Range(minLevel, maxLevel);
+            enemy.SetHponSpawn();
+            enemy.UpdateInfo();
         }
         else
         {

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2516526113329084822}
   - component: {fileID: 7976501248860486516}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: HP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2146601095711002671}
   - component: {fileID: 7003911286320964435}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: EXP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ GameObject:
   - component: {fileID: 2980978889354108037}
   - component: {fileID: 5321609533246823558}
   - component: {fileID: 4288836761202390606}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -267,7 +267,7 @@ GameObject:
   - component: {fileID: 2226135590549217842}
   - component: {fileID: 7580677671341889989}
   - component: {fileID: 3880161154386457976}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 998561225448498228}
   - component: {fileID: 583738458123804366}
   - component: {fileID: 4571069607245273035}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +417,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6697903277179117277}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +457,7 @@ GameObject:
   - component: {fileID: 4661964053038046377}
   - component: {fileID: 4819825875121805631}
   - component: {fileID: 1856900696955769501}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: MonHeader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -646,7 +646,7 @@ GameObject:
   - component: {fileID: 3320929274193566563}
   - component: {fileID: 3177225516102702909}
   - component: {fileID: 7993128569293293928}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Canvas (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -761,7 +761,7 @@ GameObject:
   - component: {fileID: 902235197672820012}
   - component: {fileID: 8119881632914513575}
   - component: {fileID: 6603824539870807259}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -838,7 +838,7 @@ GameObject:
   - component: {fileID: 6338443258264255940}
   - component: {fileID: 7077375731845838407}
   - component: {fileID: 4504028820026592281}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: LockOnText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1018,7 +1018,7 @@ GameObject:
   - component: {fileID: 6338443259118264629}
   - component: {fileID: 6338443259118264628}
   - component: {fileID: 6338443259118264587}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: SearchRad
   m_TagString: SearchRad
   m_Icon: {fileID: 0}
@@ -1084,7 +1084,7 @@ GameObject:
   - component: {fileID: 2178428839790764552}
   - component: {fileID: -7847525517539752609}
   - component: {fileID: 597002579767111849}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WildMon
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1275,7 +1275,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 344350850896893459}
-  m_Layer: 5
+  m_Layer: 7
   m_Name: Fill Area
   m_TagString: Untagged
   m_Icon: {fileID: 0}

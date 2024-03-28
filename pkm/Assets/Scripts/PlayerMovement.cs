@@ -17,6 +17,9 @@ public class PlayerMovement : MonoBehaviour
     private FootstepSwapper swapper;
     private AudioSource audioSource;
 
+    float _x = 0, _y = 0;
+    int _diag = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,8 @@ public class PlayerMovement : MonoBehaviour
             runSpeed = stats.moveSpd;
         }
         Run();
+
+        //Debug.Log("Last X + Y = " + animator.GetFloat("lastX") + animator.GetFloat("lastY"));
     }
 
     public void SwapFootsteps(FootstepCollection collection)
@@ -93,7 +98,7 @@ public class PlayerMovement : MonoBehaviour
         animator.SetFloat("Y", moveInput.y);
         animator.SetFloat("Speed", moveInput.sqrMagnitude);
 
-        if(moveInput.x == 1 || moveInput.x == -1)
+        /*if(moveInput.x == 1 || moveInput.x == -1)
         {
             animator.SetFloat("lastX", moveInput.x);
             
@@ -106,7 +111,43 @@ public class PlayerMovement : MonoBehaviour
         {
             animator.SetFloat("lastY", moveInput.y);
             animator.SetFloat("lastX", moveInput.x);
-        }
+        }*/
+    }
+
+    public void SetX(float x)
+    {
+        _x = x;
+            animator.SetFloat("lastX", x);
+        Debug.Log("X = " + _x);
+    }
+
+    public void SetY(float y)
+    {
+        _y = y;
+            animator.SetFloat("lastY", y);
+        Debug.Log("Y = " + _y);
+    }
+
+    public void IsDiag()
+    {
+        //_diag = 1;
+
+    }
+
+    private IEnumerator SetDireX(float x, float y)
+    {
+        Debug.Log("Timer Start X");
+        yield return new WaitForSeconds(0.1f);
+        animator.SetFloat("lastX", x);
+        animator.SetFloat("lastY", y);
+        _diag = 0;
+    }
+    private IEnumerator SetDireY(float y)
+    {
+        Debug.Log("Timer Start Y");
+        yield return new WaitForSeconds(0.5f);
+        animator.SetFloat("lastY", y);
+        _diag = 0;
     }
 
 
