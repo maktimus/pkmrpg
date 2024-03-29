@@ -11,17 +11,16 @@ public class Attack : MonoBehaviour
     public LayerMask enemyLayer;
     public float atkRange = 0.5f;
 
+    public float critChance;
+
+    Stats stats;
     int direction;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
+        stats = GetComponent<Stats>();
     }
 
     private void AttackDir(int dir)
@@ -46,11 +45,17 @@ public class Attack : MonoBehaviour
             foreach(Collider enemy in hitEnemies)
             {
                 Debug.Log("We hit " + enemy.name);
+                Enemy _enemy = enemy.GetComponent<Enemy>();
+                Damage(30, _enemy.def, _enemy);
             }
 
             Debug.Log("Attacking Direction = " + atkPoint[direction]);
 
             //damage
+        }
+        else
+        {
+            return;
         }
         //stop movement when attacking
     }
@@ -73,6 +78,25 @@ public class Attack : MonoBehaviour
         }
 
         attackAgain = true;
+    }
+
+    public void Damage(int _attackPower, int enemyDef, Enemy enemy)
+    {
+        float randValue = Random.Range(1.0f, 100f);
+        int damage;
+
+        if (randValue < critChance)
+        {
+            damage = Mathf.RoundToInt(((((2 * stats.level / 5 + 2) * stats.atk * _attackPower / enemyDef) / 50) + 2 /*stab*weakness/resistance*/ * 100 / 100) * 2);
+            Debug.Log("Crit!");
+        }
+        else
+        {
+
+            damage = Mathf.RoundToInt((((2 * stats.level / 5 + 2) * stats.atk * _attackPower / enemyDef) / 50) + 2 /*stab*weakness/resistance*/ * 100 / 100);
+        }
+
+        enemy.Damage(damage);
     }
 
     private void OnDrawGizmosSelected()

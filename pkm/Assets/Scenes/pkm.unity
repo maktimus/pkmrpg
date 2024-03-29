@@ -1712,8 +1712,8 @@ MonoBehaviour:
   - {fileID: 3553139076218565049, guid: a67c1180397d9aa4f9b76719ad8130db, type: 3}
   maxSpawn: 2
   spawned: 0
-  minLevel: 3
-  maxLevel: 6
+  minLevel: 100
+  maxLevel: 100
 --- !u!212 &952115805
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1994,7 +1994,7 @@ PrefabInstance:
     - target: {fileID: 3636913443680018096, guid: 698d7af88fd779946aa3de2ed755a7fd,
         type: 3}
       propertyPath: m_PropertySheet.m_Vector3f.m_Array.Array.data[0].m_Value.z
-      value: 1.1429418
+      value: 1.2188883
       objectReference: {fileID: 0}
     - target: {fileID: 3636913443680018096, guid: 698d7af88fd779946aa3de2ed755a7fd,
         type: 3}
@@ -2965,6 +2965,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   atkRange: 0.5
+  critChance: 50
 --- !u!1001 &229714588636906
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3600,7 +3601,9 @@ PrefabInstance:
       propertyPath: controller
       value: 
       objectReference: {fileID: 933845480}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5527607978379845848, guid: 70fea9b155c2bf34abeadaca4fd96d85, type: 3}
+    - {fileID: 5527607978379845852, guid: 70fea9b155c2bf34abeadaca4fd96d85, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 70fea9b155c2bf34abeadaca4fd96d85, type: 3}
 --- !u!1001 &6398821242757771113
 PrefabInstance:

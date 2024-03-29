@@ -16,6 +16,8 @@ public class Enemy : MonoBehaviour, EnemyStats, EnemyMove
     [field: SerializeField] public string _name { get; set; }
 
     [field: SerializeField] public Bounds bounds;
+    [SerializeField] TextMeshProUGUI damageNum;
+    [SerializeField] GameObject damage;
     #endregion
 
     #region stat
@@ -66,6 +68,10 @@ public class Enemy : MonoBehaviour, EnemyStats, EnemyMove
     #region Damage + Death
     public void Damage(int damageAmount)
     {
+        hp -= damageAmount;
+
+        damageNum.text = damageAmount.ToString();
+        damage.SetActive(true);
         if (hp <= 0)
         {
             Die();
@@ -113,6 +119,7 @@ public class Enemy : MonoBehaviour, EnemyStats, EnemyMove
         rb = GetComponent<Rigidbody>();
         hpBar = GetComponentInChildren<Slider>();
         info = GetComponentInChildren<TextMeshPro>();
+        //damage = GetComponentsInChildren <TextMeshPro>();
 
         SetStats();
         UpdateInfo();
