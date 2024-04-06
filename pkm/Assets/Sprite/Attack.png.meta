@@ -70,7 +70,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1820,7 +1820,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Attack_11: 59017633
-      Attack_60: 667647050
+      Attack_64: -947346461
       Attack_54: 1795041387
       Attack_15: 1004228157
       Attack_32: 940383962
@@ -1830,11 +1830,10 @@ TextureImporter:
       Attack_78: -2137993051
       Attack_56: -1390162338
       Attack_21: 838842457
-      Attack_64: -947346461
+      Attack_73: 620079645
       Attack_65: -1866884037
       Attack_9: 1675095787
       Attack_47: 586143939
-      Attack_73: 620079645
       Attack_55: 1201146017
       Attack_71: 802173569
       Attack_57: 206031050
@@ -1851,14 +1850,14 @@ TextureImporter:
       Attack_20: 748953921
       Attack_26: 1557096138
       Attack_69: 1771430007
+      Attack_76: 2123014145
       Attack_2: -1541156537
       Attack_28: 161686533
-      Attack_61: -42286013
       Attack_16: -2083534891
+      Attack_61: -42286013
       Attack_18: -1312411678
       Attack_10: 1234581682
       Attack_40: 252467890
-      Attack_76: 2123014145
       Attack_79: 1814646536
       Attack_74: 1341367564
       Attack_13: -316106623
@@ -1896,6 +1895,7 @@ TextureImporter:
       Attack_29: 1279917681
       Attack_43: 77137857
       Attack_6: 86404243
+      Attack_60: 667647050
       Attack_31: -1878998189
       Attack_49: -1836079692
       Attack_45: 1938711153

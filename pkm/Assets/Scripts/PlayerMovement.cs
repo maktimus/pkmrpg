@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private AudioSource audioSource;
 
     float _x = 0, _y = 0;
-    int _diag = 0;
+    //int _diag = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -140,14 +140,14 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         animator.SetFloat("lastX", x);
         animator.SetFloat("lastY", y);
-        _diag = 0;
+        //_diag = 0;
     }
     private IEnumerator SetDireY(float y)
     {
         Debug.Log("Timer Start Y");
         yield return new WaitForSeconds(0.5f);
         animator.SetFloat("lastY", y);
-        _diag = 0;
+        //_diag = 0;
     }
 
 

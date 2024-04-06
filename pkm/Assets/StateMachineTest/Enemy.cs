@@ -106,6 +106,10 @@ public class Enemy : MonoBehaviour, EnemyStats, EnemyMove
     }
     #endregion
 
+    #region Skills Variable
+
+    #endregion
+
     private void Awake()
     {
         stateMachine = new EnemyStateMachine();
@@ -113,6 +117,8 @@ public class Enemy : MonoBehaviour, EnemyStats, EnemyMove
         idleState = new EnemyIdle(this, stateMachine);
         chaseState = new EnemyChase(this, stateMachine);
         attackState = new EnemyAttack(this, stateMachine);
+
+        //skillList.GetC
     }
     private void Start()
     {
@@ -134,7 +140,7 @@ public class Enemy : MonoBehaviour, EnemyStats, EnemyMove
     }
     private void FixedUpdate()
     {
-        stateMachine.currentEnemyState.PhysicsUpdate(); 
+        //stateMachine.currentEnemyState.PhysicsUpdate(); 
     }
 
     public void AnimationTriggerEvent(AnimationTriggerType triggerType)
