@@ -11,7 +11,8 @@ public class Follow : MonoBehaviour
 
     //speed should be set by stats
     public float speed;
-    Stats stats;
+    PokemonHUD pkmHUD;
+    [SerializeField] Pokemon pokemon;
 
     ControllerChecker control;
 
@@ -19,8 +20,10 @@ public class Follow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stats = GetComponent<Stats>();
-        speed = stats.moveSpd;//(stats.spd / 10) * 0.5f ;
+        pkmHUD = GetComponent<PokemonHUD>();
+        pokemon = pkmHUD.Pokemon;
+
+        speed = pokemon.Speed/5;//(stats.spd / 10) * 0.5f ;
         wayPoint = GameObject.Find("Player");
         control = controller.GetComponent<ControllerChecker>();
     }
@@ -42,7 +45,7 @@ public class Follow : MonoBehaviour
             //moves towards enemy
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
         }
-        speed = stats.moveSpd;
+        //speed = pokemon.Speed/10;
         //speed = Mathf.Clamp(speed, 2, 35);
     }
 

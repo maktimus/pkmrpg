@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564be3bfdabd0084bade7ac5e03e513f, type: 3}
   m_Name: Shadow Claw
   m_EditorClassIdentifier: 
-  name: Shadow Claw
+  name_: Shadow Claw
   description: 
   type: 14
   power: 70
-  cost: 10
+  cdTime: 7

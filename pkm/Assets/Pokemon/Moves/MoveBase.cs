@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//used to creeate new moves
 [CreateAssetMenu(fileName = "Move", menuName = "Pokemon/Create new move")]
 public class MoveBase : ScriptableObject
 {
@@ -14,7 +14,7 @@ public class MoveBase : ScriptableObject
 
     [SerializeField] PokemonType type;
     [SerializeField] int power;
-    [SerializeField] int cost;
+    [SerializeField] int cdTime;
 
 
     public string Name
@@ -37,9 +37,9 @@ public class MoveBase : ScriptableObject
         get { return power; }
     }
 
-    public int Cost
+    public int CdTime
     {
-        get { return cost; }
+        get { return cdTime; }
     }
 
 }

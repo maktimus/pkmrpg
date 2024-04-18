@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class Move : MonoBehaviour
 {
+    //references the information of the base attack
     public MoveBase Base { get; set; }
 
-    public int cost { get; set; }
+    //...the cost of energy to use it
+    public int cdTime { get; set; }
 
+    //sets the move 
     public Move(MoveBase pBase)
     {
         Base = pBase;
-        cost = pBase.Cost;
+        cdTime = pBase.CdTime;
     }
 }

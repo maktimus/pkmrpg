@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 564be3bfdabd0084bade7ac5e03e513f, type: 3}
   m_Name: Dark Pulse
   m_EditorClassIdentifier: 
-  name: Dark Pulse
+  name_: Dark Pulse
   description: 
   type: 17
   power: 80
-  cost: 25
+  cdTime: 15

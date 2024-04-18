@@ -9,20 +9,30 @@ public class PokemonHUD : MonoBehaviour
     [SerializeField] TextMeshProUGUI nameText;
     [SerializeField] TextMeshProUGUI levelText;
     [SerializeField] HP hpBar;
+
+    //Gets reference to what pokemon it is i.e. charmander, bulbasaur
     [SerializeField] PokemonBase _base;
     [SerializeField] int level;
 
+    //assigned moves that we can use to attack
+    [SerializeField] public MoveBase sp1;
+    [SerializeField] public MoveBase sp2;
+
     public Pokemon Pokemon { get; set; }
 
-    private void Start()
+    private void Awake()
     {
+        //sets the data into the pokemon class
         Pokemon = new Pokemon(_base, level);
 
+        //update the UI info
         SetData();
 
-        Debug.Log("Attack: " + Pokemon.Attack + "HP: " + Pokemon.HP);
+        //updates the current movelist
+        SetMove(Pokemon.Moves);
     }
 
+    //sets the pokemons name, level and hp UI 
     public void SetData()
     {
         nameText.text = Pokemon.Base.Name;
@@ -30,14 +40,17 @@ public class PokemonHUD : MonoBehaviour
         hpBar.SetHP((float)Pokemon.HP / Pokemon.MaxHP);
     }
 
-    //testing
-    private void Update()
+
+    public void SetMove(List<Move> moves)
     {
-        if (Input.GetKeyDown(KeyCode.Backspace))
-        {
-            Pokemon.HP -= 5;
-            Debug.Log(Pokemon.Base.Name + Pokemon.HP);
-            hpBar.SetHP((float)Pokemon.HP / Pokemon.MaxHP);
-        }
+        //assigns moves from list into variable to be used in attack script
+        sp1 = moves[0].Base;
+        sp2 = moves[1].Base;
+    }
+
+    //updates the UI in game to represent current health
+    public void UpdateHP()
+    {
+        hpBar.SetHP((float)Pokemon.HP / Pokemon.MaxHP);
     }
 }

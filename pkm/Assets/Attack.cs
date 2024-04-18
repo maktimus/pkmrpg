@@ -19,15 +19,20 @@ namespace Skills
 
         Stats stats;
         int direction;
-
-        [Header("Move List")]
-        public List<Skills> MonSkills = new List<Skills>();
+        PokemonHUD pkmHUD;
+        Pokemon pokemon;
         #endregion
+
+        bool canAttack = true;
+        float cdTimer = 0.0f;
 
         void Start()
         {
             anim = GetComponent<Animator>();
             stats = GetComponent<Stats>();
+            pkmHUD = GetComponent<PokemonHUD>();
+
+            pokemon = pkmHUD.Pokemon;
         }
 
         private void AttackDir(int dir)
@@ -64,24 +69,53 @@ namespace Skills
             {
                 return;
             }
-            //stop movement when attacking
+        }
+
+        private void Update()
+        {
+            if(!canAttack)
+            {
+                cdTimer -= Time.deltaTime;
+                Debug.Log(cdTimer);
+                if(cdTimer <= 0.0f)
+                {
+                    canAttack = true;
+                }
+            }
         }
 
         private void OnSpecial(InputValue inputValue)
         {
+            float cdDuration = pkmHUD.sp1.CdTime; //the set cooldown of the move i.e 15secoonds
+            //float lastAttackTime;
 
-            anim.ResetTrigger("StopAttack");
-
-            anim.SetTrigger("Attack");
-            attackAgain = false;
-
-            Collider[] hitEnemies = Physics.OverlapSphere(atkPoint[direction].position, atkRange, enemyLayer);
-
-            foreach (Collider enemy in hitEnemies)
+            if (canAttack)
             {
-                Debug.Log("We hit " + enemy.name);
-                Enemy _enemy = enemy.GetComponent<Enemy>();
-                Damage(80, _enemy.def, _enemy);
+                anim.ResetTrigger("StopAttack");
+
+                anim.SetTrigger("Attack");
+
+                cdTimer = cdDuration;
+                canAttack = false;
+
+                Collider[] hitEnemies = Physics.OverlapSphere(atkPoint[direction].position, atkRange, enemyLayer);
+
+                foreach (Collider enemy in hitEnemies)
+                {
+                    Debug.Log("Sableye used " + pkmHUD.sp1.Name + pkmHUD.sp1.Power);
+                    int Power = pkmHUD.sp1.Power;
+
+                    PokemonHUD _enemy = enemy.GetComponent<PokemonHUD>();
+                    _enemy.Pokemon.TakeDamage(Power, pokemon);
+                    _enemy.UpdateHP();
+
+                    Debug.Log("Enemy take damage");
+
+                }
+            }
+            else
+            {
+                Debug.Log("Cooldown");
             }
         }
 

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+//used to create new types of pokemon
 [CreateAssetMenu(fileName = "Pokemon", menuName = "Pokemon/Create new Pokemon")]
 public class PokemonBase : ScriptableObject
 {
@@ -31,6 +31,7 @@ public class PokemonBase : ScriptableObject
     [Header("Move List")]
     [SerializeField] List<LearnableMove> learnableMoves;
 
+    //to get reference of these variables from other scripts
     #region public properties
     public string Name
     {
@@ -94,10 +95,13 @@ public class PokemonBase : ScriptableObject
 }
 #endregion
 
+//allows to save data locally
 [System.Serializable]
 public class LearnableMove
 {
+    //set up its move list
     [SerializeField] MoveBase mBase;
+    //level to learn each move
     [SerializeField] int level;
 
     public MoveBase Base
@@ -111,6 +115,7 @@ public class LearnableMove
     }
 }
 
+//set variables for each type
 public enum PokemonType
 {
     None,

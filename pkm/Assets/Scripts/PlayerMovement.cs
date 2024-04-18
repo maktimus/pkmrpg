@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerMovement : MonoBehaviour
 {
-    Stats stats;
+    PokemonHUD pkmHUD;
+    Pokemon pokemon;
     public float runSpeed;
     public int size; //1 - 3, 1 being small and 3 being big. For footsteps
 
@@ -29,8 +30,9 @@ public class PlayerMovement : MonoBehaviour
         if(this.CompareTag("Pet"))
         {
             animator = GetComponent<Animator>();
-            stats = GetComponent<Stats>();
-            runSpeed = stats.moveSpd;
+            pkmHUD = GetComponent<PokemonHUD>();
+            pokemon = pkmHUD.Pokemon;
+            runSpeed = pokemon.Speed/5;
         }
     }
 
@@ -39,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(this.CompareTag("Pet"))
         {
-            runSpeed = stats.moveSpd;
+            //runSpeed = pokemon.Speed/5;
         }
         Run();
 
